@@ -70,5 +70,8 @@ static const struct arg args[] = {
 	{ cpu_perc,	"[\uf4bc  %3s%%]",      NULL              },
 	{ ram_perc,     "[\uefc5  %3s%%]",      NULL              },
 	{ print,        "%s",                   " | "             },
+	{ run_command,  "[\U000f05a9 %3s%%]",   "nmcli -f IN-USE,SIGNAL dev wifi | awk '/\\*/{print $2}'" },
+	{ run_command,  "[VPN %s]",                   "[ $(piactl get connectionstate) = \"Connected\" ] && echo \"ON\" || echo \"OFF\"" },
+	{ print,        "%s",                   " | "             },
 	{ datetime,	"%s",                   "%T (%a)%d-%m-%Y" },
 };
