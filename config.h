@@ -73,7 +73,8 @@ static const struct arg args[] = {
 	{ run_command,  "[\U000f05a9 %3s%%]",   "nmcli -f IN-USE,SIGNAL dev wifi | awk '/\\*/{print $2}'" },
 	{ run_command,  "[VPN %s]",                   "[ $(piactl get connectionstate) = \"Connected\" ] && echo \"ON\" || echo \"OFF\"" },
 	{ print,        "%s",                   " | "             },
-  { run_command,  "[\uf028 %4s]",         "pactl get-sink-volume @DEFAULT_SINK@ | grep -oP '\\d+%' | head -1" },
+  { run_command,  "[%s ",                 "wpctl get-volume @DEFAULT_SINK@ | grep -q 'MUTED' && echo \"\ueee8\" || echo \"\uf028\"" },
+  { run_command,  "%4s]",                 "pactl get-sink-volume @DEFAULT_SINK@ | grep -oP '\\d+%' | head -1" },
 	{ print,        "%s",                   " | "             },
 	{ datetime,	"%s",                   "%d-%m-%Y (%a) %T" },
 };
