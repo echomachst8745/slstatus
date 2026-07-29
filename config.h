@@ -75,5 +75,5 @@ static const struct arg args[] = {
 	{ print,        "%s",                   " | "             },
   { run_command,  "[\uf028 %4s]",         "pactl get-sink-volume @DEFAULT_SINK@ | grep -oP '\\d+%' | head -1" },
 	{ print,        "%s",                   " | "             },
-	{ datetime,	"%s",                   "%T (%a)%d-%m-%Y" },
+	{ datetime,	"%s",                   "%d-%m-%Y (%a) %T" },
 };
